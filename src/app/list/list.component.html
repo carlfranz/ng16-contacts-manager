@@ -1,0 +1,32 @@
+<div class="page-header">
+    <h1>All Contacts</h1>
+</div>
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Email Address</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            <tr *ngFor="let contact of contacts; let index = index;">
+                <td>{{contact.name}}</td>
+                <td>{{contact.email}}</td>
+                <td>{{contact.phone}}</td>
+                <td>
+                    <a class="btn btn-light btn-sm" href="#" [routerLink]="['contact', index]">
+                        View
+                    </a>
+                    <button class="btn btn-danger btn-sm ms-1">
+                        Delete
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

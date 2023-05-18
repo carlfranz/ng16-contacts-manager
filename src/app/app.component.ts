@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,16 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'ng16-contact-manager';
+
+  constructor(private router: Router) {
+
+  }
+
+  title = 'Contacts Manager';
+  search = signal('');
+
+  onSearchUpdated(arg0: any) {
+    this.search.set(arg0)
+    this.router.navigate(['/'])
+  }
 }
